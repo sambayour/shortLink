@@ -15,8 +15,11 @@ export class Link {
   @Column({ unique: true })
   code: string;
 
-  @Column({ unique: true })
+  @Column()
   link: string;
+
+  @Column({ unique: true })
+  short_link: string;
 
   @Column({
     default: 0,

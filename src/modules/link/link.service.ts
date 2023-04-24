@@ -3,6 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Link } from './entity/link.entity';
 import { AddLinkDTO } from './dto/link.dto';
 import { Repository } from 'typeorm';
+import { randomStr } from 'src/helpers/utility';
+import { Ilink } from 'src/commons/interface';
 
 @Injectable()
 export class LinkService {
@@ -13,6 +15,14 @@ export class LinkService {
   }
 
   async createLink(payload: AddLinkDTO): Promise<Link> {
-    return this.linkRepository.save(payload);
+    const code = randomStr(7);
+
+    const linkPayload: Ilink = {
+      code,
+      short_link: `${process.env.APP_URL + '/' + code}`,
+      link: payload.link,
+    };
+
+    return this.linkRepository.save(linkPayload);
   }
 }

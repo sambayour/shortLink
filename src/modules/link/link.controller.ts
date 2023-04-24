@@ -8,6 +8,14 @@ export class LinkController {
 
   @Post()
   async createLink(@Body() payload: AddLinkDTO) {
-    return this.linkService.createLink(payload);
+    try {
+      return this.linkService.createLink(payload);
+    } catch (err) {
+      if (err.code === 'ER_DUP_ENTRY') {
+        throw new Error('duplicate');
+      } else {
+        throw new Error('operation failed');
+      }
+    }
   }
 }
