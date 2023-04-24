@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ResponseInterceptor } from './interceptors/response-interceptor';
 
 async function bootstrap() {
   const port = process.env.PORT ? Number(process.env.PORT) : 2023;
@@ -13,6 +14,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
+  app.useGlobalInterceptors(new ResponseInterceptor());
   await app.listen(port);
   console.log('App started on', port);
 }
