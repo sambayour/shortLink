@@ -13,6 +13,9 @@ export class Link {
   id: number;
 
   @Column({ unique: true })
+  code: string;
+
+  @Column({ unique: true })
   link: string;
 
   @Column({
