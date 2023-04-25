@@ -8,3 +8,7 @@ const randomstring = require('randomstring');
 export const randomStr = (length) => {
   return randomstring.generate(length);
 };
+
+export const codeInLink = (link) => {
+  return link.slice(-7);
+};

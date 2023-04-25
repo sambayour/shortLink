@@ -10,3 +10,13 @@ export class AddLinkDTO {
   @IsString()
   link: string;
 }
+
+export class ViewLinkDTO {
+  @ApiProperty({
+    description: 'code/shortlink to decode',
+    type: 'string',
+  })
+  @IsNotEmpty()
+  @IsString()
+  short_link: string;
+}
