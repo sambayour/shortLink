@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Link } from './entity/link.entity';
 import { AddLinkDTO, ViewLinkDTO } from './dto/link.dto';
 import { Repository } from 'typeorm';
-import { codeInLink, randomStr } from 'src/helpers/utility';
+import { codeInLink, randomStr } from './../../helpers/utility';
 import { Ilink } from 'src/commons/interface';
 
 @Injectable()
