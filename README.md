@@ -7,7 +7,6 @@ An application that accepts a link/URL and convert it to a short link.
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/19516147/234148055-9ce5e0e0-9837-4d75-ad01-b59da1bcb4cb.png">
 
-
 ## Installation
 
 ```bash
@@ -30,14 +29,10 @@ $ npm run start:prod
 ## Test
 
 ```bash
-# unit tests
-$ npm run test
 
 # e2e tests
 $ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
 ```
 
 ## Endpoints
